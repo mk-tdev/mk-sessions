@@ -1,0 +1,131 @@
+:root {
+  --beige: hsl(39, 52%, 90%);
+  --green-500: hsl(167, 92%, 14%);
+  --green-300: hsl(148, 100%, 34%);
+}
+
+body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.overview {
+  display: grid;
+  gap: 3rem;
+  padding-block: 3rem;
+  background-color: #333;
+}
+
+.container {
+  container-type: inline-size;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 1rem;
+}
+
+.container[data-type='small'] {
+  max-width: 350px;
+}
+.container[data-type='medium'] {
+  max-width: 600px;
+}
+.container[data-type='large'] {
+  max-width: 850px;
+}
+
+.overview p {
+  padding: 0.5rem;
+  background-color: blueviolet;
+}
+
+@container (min-width: 375px) {
+  .overview p {
+    background-color: green;
+  }
+}
+
+@container (min-width: 625px) {
+  .overview p {
+    background-color: orangered;
+  }
+}
+
+.btn {
+  cursor: pointer;
+  border: 0;
+  text-decoration: none;
+  background: transparent;
+  padding: 0.75em 1.5em;
+  border-radius: 100vw;
+  background: var(--green-300);
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--beige);
+  line-height: 1;
+}
+
+main {
+  max-width: 85em;
+  margin-inline: auto;
+  display: grid;
+  align-items: start;
+  gap: 2rem;
+}
+
+.cta {
+  display: grid;
+  gap: 1rem;
+  background: hsl(39, 52%, 90%);
+  color: #333;
+  padding: 1rem;
+}
+
+.cta > * {
+  margin: 0;
+}
+
+@container (min-width: 700px) {
+  /* @media (min-width: 50em) { */
+  .cta > :not(.btn) {
+    grid-column: 1 / 2;
+  }
+
+  .cta > .btn {
+    grid-row: 1 / 3;
+    grid-column: 2 / 3;
+    align-self: center;
+  }
+}
+
+.content-sidebar {
+  background-color: #333;
+  color: #fff;
+  display: grid;
+  gap: 2rem;
+}
+
+@media (min-width: 60em) {
+  .content-sidebar {
+    grid-template-columns: 1fr 16rem;
+  }
+}
+
+.content-sidebar > * {
+  container-type: inline-size;
+}
+
+.primary-sidebar {
+  padding: 1rem;
+  background-color: #5c4646;
+  /* named container */
+  container-type: inline-size;
+  container-name: primary-sidebar;
+}
+
+@container primary-sidebar (width < 600px) {
+  .cta {
+    background-color: goldenrod;
+  }
+}

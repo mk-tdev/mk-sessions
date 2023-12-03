@@ -1,0 +1,45 @@
+body {
+  height: 100vh;
+  background-color: #333;
+}
+
+.overview {
+  display: grid;
+  gap: 3rem;
+  padding-block: 3rem;
+  justify-content: center;
+  justify-items: center;
+}
+
+.container {
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 1rem;
+}
+
+.container[data-type='small'] {
+  max-width: 350px;
+}
+.container[data-type='medium'] {
+  max-width: 600px;
+}
+.container[data-type='large'] {
+  max-width: 850px;
+}
+
+.overview p {
+  padding: 0.5rem;
+  background-color: blueviolet;
+}
+
+@media (min-width: 375px) {
+  .overview p {
+    background-color: green;
+  }
+}
+
+@media (min-width: 625px) {
+  .overview p {
+    background-color: orangered;
+  }
+}
